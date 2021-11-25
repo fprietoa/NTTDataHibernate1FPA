@@ -20,19 +20,15 @@ public class NTTDataHibernateUtil {
 	 * Generacion de factoria de sesiones.
 	 */
 	static {
-
 		try {
-
 			// Generación de configuración.
 			SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
 
 		} catch (final Throwable ex) {
-
 			// Error de inicialización.
 			System.err.println("[ERROR] Configuración de Hibernate - " + ex);
 			throw new ExceptionInInitializerError();
 		}
-
 	}
 
 	/**

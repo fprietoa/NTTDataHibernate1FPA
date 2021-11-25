@@ -3,7 +3,6 @@ package com.nttdata.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 
 import com.nttdata.hibernate.persistence.NTTDataCustomer;

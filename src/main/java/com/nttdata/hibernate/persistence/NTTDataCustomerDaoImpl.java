@@ -22,7 +22,6 @@ public class NTTDataCustomerDaoImpl<T> implements NTTDataCustomerDaoI<T> {
 	 * 
 	 * @param session
 	 */
-	@SuppressWarnings("unchecked")
 	public NTTDataCustomerDaoImpl(Session session) {
 		this.session = session;
 	}
@@ -73,6 +72,7 @@ public class NTTDataCustomerDaoImpl<T> implements NTTDataCustomerDaoI<T> {
 		session.getTransaction().commit();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T searchById(final Long id) {
 
@@ -81,7 +81,7 @@ public class NTTDataCustomerDaoImpl<T> implements NTTDataCustomerDaoI<T> {
 			session.getTransaction().begin();
 		}
 
-		// Búsqueda por PK.
+		// Búsqueda por PK.		
 		T result = (T) session.get(NTTDataCustomer.class, id);
 
 		return result;
@@ -104,6 +104,7 @@ public class NTTDataCustomerDaoImpl<T> implements NTTDataCustomerDaoI<T> {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<T> searchByNameAndSurnames(final String nombre, final String apellido1, final String apellido2) {
 
 		// Verificación de sesión abierta.
@@ -111,7 +112,7 @@ public class NTTDataCustomerDaoImpl<T> implements NTTDataCustomerDaoI<T> {
 			session.getTransaction().begin();
 		}
 
-		// Localiza jugadores en función del nombre.
+		// Localiza jugadores en función del nombre.		
 		final List<T> customerList = session.createQuery("FROM " + NTTDataCustomer.class.getName() + " WHERE " + "NAME LIKE " + "'" + nombre + "'"
 		        + " AND LASTNAME1 LIKE " + "'" + apellido1 + "'" + " AND LASTNAME2 LIKE " + "'" + apellido2 + "'").list();
 

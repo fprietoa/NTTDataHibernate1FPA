@@ -1,7 +1,5 @@
 package com.nttdata.hibernate;
 
-import java.util.Date;
-
 import org.hibernate.Session;
 
 import com.nttdata.hibernate.persistence.NTTDataCustomer;
